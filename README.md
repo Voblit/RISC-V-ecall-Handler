@@ -19,8 +19,9 @@ build it with clang:
 
 
 then build the program with it:
-``clang --target=riscv32 -march=rv32im -mabi=ilp32 -c [your target].s -o [your target].o
-ld.lld -Ttext=0x80000000 drivers.o [your target].o -o prog.elf``
+``clang --target=riscv32 -march=rv32im -mabi=ilp32 -c [your target].s -o [your target].o``
+
+``ld.lld -Ttext=0x80000000 drivers.o [your target].o -o prog.elf``
 
 finally, test in qemu:
 ``qemu-system-riscv32 -machine virt -bios none -nographic -kernel prog.elf``
