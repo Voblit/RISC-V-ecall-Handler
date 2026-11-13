@@ -12,7 +12,7 @@ supports these instructions currently:
 | 10 | `Exit` |
 | 11 | `PrintChar` |
 
-##useage 
+## useage 
 
 build it with clang:
 ``clang --target=riscv32 -march=rv32im -mabi=ilp32 -c drivers.s -o drivers.o``
