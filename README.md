@@ -1,2 +1,19 @@
 # RISC-V-ecall-Handler
 RARS-style system calls ported via a UART on bare metal
+
+supports these instructions currently: 
+
+| load into `a7` | Service provided. |
+| :---: | :--- |
+| 1 | `PrintInt` |
+| 4 | `PrintString` |
+| 5 | `ReadInt` |
+| 8 | `ReadString` |
+| 10 | `Exit` |
+| 11 | `PrintChar` |
+
+
+clang --target=riscv32 -march=rv32im -mabi=ilp32 -c drivers.s -o drivers.o
+clang --target=riscv32 -march=rv32im -mabi=ilp32 -c rpn.s -o rpn.o
+ld.lld -Ttext=0x80000000 drivers.o rpn.o -o prog.elf
+qemu-system-riscv32 -machine virt -bios none -nographic -kernel prog.elf
