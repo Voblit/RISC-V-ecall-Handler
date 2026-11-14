@@ -14,7 +14,6 @@ halt:
 .align 4
 handler:
   addi sp, sp, -128
-  #//saving everything (not sp or zero) because i dont trust myself
   sw x1, 4(sp)
   sw x3, 12(sp)
   sw x4, 16(sp)
