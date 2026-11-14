@@ -1,5 +1,5 @@
 # RISC-V ecall Handler
-A bare-metal implementation of RARS-style system calls for RV32IM, using a machine-mode trap handler and UART for I/O.
+A port of RARS-style system calls for RV32IM, using a trap handler and UART for I/O.
 
 supports these instructions currently: 
 
@@ -30,6 +30,6 @@ finally, test in qemu:
 
 The driver initializes the stack, installs the trap handler, and calls `main`.
 
-System call arguments use `a0` and `a1`. The service number goes in `a7`, followed by `ecall`.
+Arguments for these system calls use `a0` and `a1`. The service number should be loaded into `a7`, then use`ecall`.
 
 `ReadString` uses `a0` as the buffer address and `a1` as its maximum capacity.
