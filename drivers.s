@@ -141,7 +141,6 @@ digits:
   add t0, t0, a0
   jal getc
   j digits
-#//a0 gets restored from the stack later so the answer has to go in its slot
 intdone:
   mul t0, t0, t1
   sw t0, 40(sp)
@@ -245,7 +244,6 @@ putwait:
   beqz t6, putwait
   sb a0, 0(t5)
   ret
-#//qemu doesnt echo so getc does it too
 getc:
   li t5, 0x10000000
 getwait:
