@@ -14,7 +14,7 @@ halt:
 .align 4
 handler:
   addi sp, sp, -128
-  #// saving everything (not sp or zero) because i dont trust myself
+  #//saving everything (not sp or zero) because i dont trust myself
   sw x1, 4(sp)
   sw x3, 12(sp)
   sw x4, 16(sp)
@@ -141,7 +141,7 @@ digits:
   add t0, t0, a0
   jal getc
   j digits
-#// a0 gets restored from the stack later so the answer has to go in its slot
+#//a0 gets restored from the stack later so the answer has to go in its slot
 intdone:
   mul t0, t0, t1
   sw t0, 40(sp)
@@ -191,7 +191,7 @@ shutdown:
 hang:
   wfi
   j hang
-#// anything that isnt an ecall ends up here
+#//anything that isnt an ecall ends up here
 fatal:
   la t0, trapmsg
 fatalloop:
@@ -245,7 +245,7 @@ putwait:
   beqz t6, putwait
   sb a0, 0(t5)
   ret
-#// qemu doesnt echo so getc does it too
+#//qemu doesnt echo so getc does it too
 getc:
   li t5, 0x10000000
 getwait:
