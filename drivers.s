@@ -1,6 +1,6 @@
 # hardware driver for RISC-V 32 bit
 #//uart lives at 0x10000000 and the line status is 5 bytes after that
-#//qemu poweroff thingy is at 0x100000, write 0x5555 and it shuts down
+#//qemu poweroff thingy is at 0x100000, write 0x5555 and it shuts down, any other systems need that changed.
 .section .text.init
 .globl _start
 _start:
